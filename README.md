@@ -62,7 +62,9 @@ Aplicativo para ajudar pessoas a lembrarem de cuidar de suas plantas. Os lembret
 - [Node.js](https://nodejs.org/en/)
 - [Expo](https://expo.io/learn)
 - [TypeScript](https://www.typescriptlang.org/)
-- [react-native-iphone-x-helper](https://github.com/ptelad/react-native-iphone-x-helper)
+- [React Navigation](https://reactnavigation.org/)
+- [Axios](https://github.com/axios/axios)
+- [JSON Server](https://github.com/typicode/json-server)
 <!-- - []() -->
 
 <br/>
