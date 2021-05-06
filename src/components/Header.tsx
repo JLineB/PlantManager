@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
-import userImg from '../../assets/usuario.png';
+import userImg from '../../assets/icon.png';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
-export function Header(){
+export function Header() {
     return (
         <View style={styles.container}>
             <View>
@@ -17,7 +17,7 @@ export function Header(){
                 </Text>
             </View>
 
-            <Image source={ userImg } style={styles.image} />
+            <Image source={userImg} style={styles.image} />
         </View>
     )
 }
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         marginTop: getStatusBarHeight(),
     },
-    
+
     greetings: {
         fontSize: 32,
         color: colors.heading,
