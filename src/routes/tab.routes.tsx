@@ -15,9 +15,9 @@ const AuthRoutes = () => {
                 inactiveTintColor: colors.heading,
                 labelPosition: 'beside-icon',
                 style: {
-                    paddingVertical: 20,
-                    height: 88
-                }
+                    // paddingVertical: 20,
+                    height: 55 //88
+                },
             }}
         >
 
@@ -34,6 +34,7 @@ const AuthRoutes = () => {
                     ))
                 }}
             />
+            
             <AppTab.Screen
                 name="Minhas Plantas"
                 component={MyPlants}
