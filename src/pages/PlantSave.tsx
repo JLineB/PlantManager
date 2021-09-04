@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text, Image, Platform, Alert, TouchableOpacity } from 'react-native';
+import {
+    View,
+    StyleSheet,
+    Text,
+    Image,
+    Platform,
+    Alert,
+    TouchableOpacity,
+    ScrollView
+} from 'react-native';
 import { Button } from '../components/Button';
 import { SvgFromUri } from 'react-native-svg';
 import { getBottomSpace } from 'react-native-iphone-x-helper';
-import { useRoute } from '@react-navigation/core';
+import { useRoute, useNavigation } from '@react-navigation/core';
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 import { format, isBefore } from 'date-fns';
-import { loadPlant, PlantProps, savePlant } from '../libs/storage';
+import { PlantProps, savePlant } from '../libs/storage';
 import waterdrop from '../assets/waterdrop.png';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
+
 
 interface Params {
     plant: PlantProps
@@ -22,17 +32,19 @@ export function PlantSave() {
     const route = useRoute();
     const { plant } = route.params as Params;
 
+    const navigation = useNavigation();
+
     function handleChangeTime(event: Event, dateTime: Date | undefined) {
-        if(Platform.OS === 'android'){
+        if (Platform.OS === 'android') {
             setShowDatePicker(oldState => !oldState);
         }
 
-        if(dateTime && isBefore(dateTime, new Date())){
+        if (dateTime && isBefore(dateTime, new Date())) {
             setSelectedDateTime(new Date());
             return Alert.alert('Escolha uma hora no futuro! ⏰');
         }
 
-        if(dateTime)
+        if (dateTime)
             setSelectedDateTime(dateTime);
     }
 
@@ -42,7 +54,7 @@ export function PlantSave() {
     }
 
     async function handleSave() {
-        
+
         try {
             await savePlant({
                 ...plant,
@@ -67,70 +79,71 @@ export function PlantSave() {
             showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.container}
         >
-        <View style={styles.container}>
-            <View style={styles.plantInfo}>
-                <SvgFromUri
-                    uri={plant.photo}
-                    height={150}
-                    width={150}
-                />
-
-                <Text style={styles.plantName}>
-                    {plant.name}
-                </Text>
-
-                <Text style={styles.plantAbout}>
-                    {plant.about}
-                </Text>
-            </View>
-
-            <View style={styles.controller}>
-                <View style={styles.tipContainer}>
-                    <Image
-                        source={waterdrop}
-                        style={styles.tipImage}
+            <View style={styles.container}>
+                <View style={styles.plantInfo}>
+                    <SvgFromUri
+                        uri={plant.photo}
+                        height={150}
+                        width={150}
                     />
-                    <Text style={styles.tipText}>
-                        {plant.water_tips}
+
+                    <Text style={styles.plantName}>
+                        {plant.name}
+                    </Text>
+
+                    <Text style={styles.plantAbout}>
+                        {plant.about}
                     </Text>
                 </View>
 
-                <Text style={styles.alertLabel}>
-                    Escolha o melhor horário para ser lembrado:
-                </Text>
+                <View style={styles.controller}>
+                    <View style={styles.tipContainer}>
+                        <Image
+                            source={waterdrop}
+                            style={styles.tipImage}
+                        />
+                        <Text style={styles.tipText}>
+                            {plant.water_tips}
+                        </Text>
+                    </View>
 
-                
-                { showDatePicker && (
-                    <DateTimePicker
-                    value={selectedDateTime}
-                    mode="time"
-                    display="spinner"
-                    onChange={handleChangeTime}
+                    <Text style={styles.alertLabel}>
+                        Escolha o melhor horário para ser lembrado:
+                    </Text>
+
+
+                    {showDatePicker && (
+                        <DateTimePicker
+                            value={selectedDateTime}
+                            mode="time"
+                            display="spinner"
+                            onChange={handleChangeTime}
+                        />
+                    )}
+
+
+                    {
+                        Platform.OS === 'android' && (
+                            <TouchableOpacity
+                                style={styles.dateTimePickerButton}
+                                onPress={handleOpenDatetimePickerForAndroid}
+                            >
+                                <Text style={styles.dateTimePickerText}>
+                                    {`Mudar: ${format(selectedDateTime, 'HH:mm')}`}
+                                </Text>
+                            </TouchableOpacity>
+                        )
+                    }
+
+
+                    <Button
+                        title="Cadastrar Planta"
+                        onPress={handleSave}
                     />
-                ) }
 
-
-                {
-                    Platform.OS === 'android' && (
-                        <TouchableOpacity
-                        style={styles.dateTimePickerButton}
-                        onPress={handleOpenDatetimePickerForAndroid}
-                        >
-                            <Text style={styles.dateTimePickerText}>
-                                {`Mudar: ${format(selectedDateTime, 'HH:mm')}`}
-                            </Text>
-                        </TouchableOpacity>
-                    )
-                }
-
-
-                <Button
-                    title="Cadastrar Planta"
-                    onPress={handleSave}
-                />
-
+                </View>
             </View>
-        </View>
+        </ScrollView>
     )
 }
 
@@ -196,7 +209,7 @@ const styles = StyleSheet.create({
         fontSize: 17,
         textAlign: 'justify'
     },
-    
+
     alertLabel: {
         textAlign: 'center',
         fontFamily: fonts.complement,
@@ -216,5 +229,4 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontFamily: fonts.text
     }
-    
 })
