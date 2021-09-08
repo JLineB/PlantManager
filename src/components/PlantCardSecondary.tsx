@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Animated } from 'react-native';
+import { StyleSheet, Text, View, Animated, Platform } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { SvgFromUri } from 'react-native-svg';
@@ -66,7 +66,7 @@ export const PlantCardSecondary = ({ data, handleRemove, ...rest }: PlantProps) 
 const styles = StyleSheet.create({
     
     buttonRemove: {
-        width: 100, //120,
+        width: Platform.OS === 'android' ? 100 : 120,
         height: 85,
         backgroundColor: colors.red,
         marginTop: 15,
@@ -74,8 +74,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         position: 'relative',
-        right: 20, //15,
-        paddingLeft: 15 //10
+        right: Platform.OS === 'android' ? 20 : 15,
+        paddingLeft: Platform.OS === 'android' ? 15 : 10
     },
 
     container: {

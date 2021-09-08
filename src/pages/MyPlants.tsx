@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, Image, FlatList, Alert } from 'react-native';
+import { StyleSheet, View, Text, Image, FlatList, Alert, Platform } from 'react-native';
 import { Header } from '../components/Header';
 import { PlantCardSecondary } from '../components/PlantCardSecondary';
 import { Load } from '../components/Load';
@@ -51,7 +51,7 @@ function handleRemove(plant: PlantProps){
             );
 
             setNextWatered(
-                `Não esqueça de regar a ${plantsStoraged[0].name} às ${nextTime} horas`
+                `Não esqueça de regar a ${plantsStoraged[0].name} às ${nextTime}`
             )
 
             setMyPlants(plantsStoraged);
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 30,
-        paddingTop: 10, // 50,
+        paddingTop: Platform.OS === 'android' ? 10 : 50,
         backgroundColor: colors.background
     },
 
