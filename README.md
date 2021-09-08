@@ -1,60 +1,54 @@
 <h1 align="center">
-    <img alt="PlantManager" width="30%" src="./assets/adaptive-icon.png">
+    <img alt="Logo-PlantManager" src="./logo.png">
     <br/>
-    <strong> PlantManager </strong>
 </h1>
 
 <h3 align="center">
-NLW #5 | Trilha <strong> React Native </strong> | Rocketseat
+    <img alt="NLW-5" src="https://img.shields.io/badge/NLW-%235-brightgreen">
+    <img alt="Trilha-ReactNative" src="https://img.shields.io/badge/Trilha-React%20Native-blue">
+    <img alt="Rocketseat" src="https://img.shields.io/badge/-Rocketseat-blueviolet">
 </h3>
 
-<!-- IMAGEM DO Mockup -->
-<!-- <h2 align="center">
-  <img alt="Preview" src="./preview.png">
-</h2> -->
+<h3 align="center">
+  <img alt="Preview_Android" src="https://live.staticflickr.com/65535/51424325357_e5ebeec9ec.jpg" width="238" height="500">
+  <img alt="Preview_iPhone" src="https://live.staticflickr.com/65535/51425055771_65c9475ca6.jpg" width="251" height="500">
+</h3>
+
+<br/>
+ 
+## 🔖 SUMÁRIO
+
+- [SOBRE](#SOBRE)
+- [DEMONSTRAÇÂO](#DEMONSTRACAO)
+- [TECNOLOGIAS](#TECNOLOGIAS)
+- [LICENÇA](#LICENCA)
 
 <br/>
 
-# 📑 SUMÁRIO
-
-* [Sobre](#Sobre)
-
-* [Apresentação](#Apresentacao)
-
-  * [Demonstrativo](#Demonstrativo)
-
-* [Tecnologias](#Tecnologias)
-
-* [Licença](#Licenca)
-
-<br/>
-
-<a id="Sobre"></a>
+<a id="SOBRE"></a>
 # ✏️ SOBRE
 
 <p>
-Aplicativo para ajudar pessoas a lembrarem de cuidar de suas plantas. Os lembretes variam de planta para planta, com frequências diferenciadas entre si e de acordo com o tipo de planta a ser regada.
+Aplicativo para ajudar pessoas a lembrarem de cuidar de suas plantas. Os lembretes variam de planta para planta e com frequências diferenciadas entre si.
 </p>
 
 <br/>
 
-<a id="Apresentacao"></a>
-# 📱 APRESENTAÇÃO
+<a id="DEMONSTRACAO"></a>
+# 📲 DEMONSTRAÇÃO
 
-<h2 align="center">
-  <img alt="Preview" src="./preview.png">
-</h2>
-    >> ADD GIFS DE USO
+➡️ Instale o **Expo** no seu celular 
 
-<br/>
+> **[APPLE STORE](https://apps.apple.com/app/apple-store/id982107779) | [GOOGLE PLAY](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)**
 
-<a id="Demonstrativo"></a>
-- ### [DEMONSTRATIVO]()
-  <!-- HOSPEDAR NO EXPO E ADD -->
+➡️ Abra o link do projeto : 
+> **[PlantManager](https://expo.dev/@jaqbrsilva/PlantManager)**
+
+➡️ Leia o QR Code, ou entre pelo link disponibilizado abaixo dele
 
 <br/>
 
-<a id="Tecnologias"></a>
+<a id="TECNOLOGIAS"></a>
 # 🌟 TECNOLOGIAS
 
 - [Node.js](https://nodejs.org/en/)
@@ -65,7 +59,7 @@ Aplicativo para ajudar pessoas a lembrarem de cuidar de suas plantas. Os lembret
 
 <br/>
 
-<a id="Licenca"></a>
+<a id="LICENCA"></a>
 # 🔓 LICENÇA
 
 ## 👉 [MIT](./LICENSE.md)
