@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, Image, FlatList, Alert, Platform } from 'react-native';
+import { StyleSheet, View, Text, Image, FlatList, Alert, Platform, ScrollView } from 'react-native';
 import { Header } from '../components/Header';
 import { PlantCardSecondary } from '../components/PlantCardSecondary';
 import { Load } from '../components/Load';
@@ -16,29 +16,29 @@ export function MyPlants() {
     const [loading, setLoading] = useState(true);
     const [nextWatered, setNextWatered] = useState<string>();
 
-function handleRemove(plant: PlantProps){
-    Alert.alert('Remover', `Deseja remover a ${plant.name}?`, [
-        {
-            text: 'Não 🙏',
-            style: 'cancel'
-        },
-        {
-            text: 'Sim 😥',
-            onPress: async() => {
-                try {
-                    await removePlant(plant.id);
-                    setMyPlants((oldData) =>
-                        oldData.filter((item) => item.id != plant.id)
-                    );
+    function handleRemove(plant: PlantProps) {
+        Alert.alert('Remover', `Deseja remover a ${plant.name}?`, [
+            {
+                text: 'Não 🙏',
+                style: 'cancel'
+            },
+            {
+                text: 'Sim 😥',
+                onPress: async () => {
+                    try {
+                        await removePlant(plant.id);
+                        setMyPlants((oldData) =>
+                            oldData.filter((item) => item.id != plant.id)
+                        );
 
-                } catch (error) {
-                    Alert.alert('Não foi possível remover 😥')
+                    } catch (error) {
+                        Alert.alert('Não foi possível remover 😥')
+                    }
                 }
             }
-        }
-    ])
+        ])
 
-}
+    }
 
     useEffect(() => {
         async function loadStorageData() {
@@ -60,7 +60,7 @@ function handleRemove(plant: PlantProps){
 
         loadStorageData();
 
-    },[])
+    }, [])
 
 
     if (loading)
@@ -69,7 +69,7 @@ function handleRemove(plant: PlantProps){
 
     return (
         <View style={styles.container}>
-            <Header/>
+            <Header />
 
             <View style={styles.spotlight}>
                 <Image
@@ -86,21 +86,21 @@ function handleRemove(plant: PlantProps){
                     Próximas regadas
                 </Text>
 
-                <FlatList
-                    data={myPlants}
-                    keyExtractor={(item) => String(item.id)}
-                    renderItem={({ item }) => (
-                        <PlantCardSecondary
-                            data={item}
-                            handleRemove={() => {handleRemove(item)}}
-                        />
-                    )}
-                    showsVerticalScrollIndicator={false}
-                    contentContainerStyle={{ flex: 1 }}
-                />
-
+                <ScrollView>
+                    <FlatList
+                        data={myPlants}
+                        keyExtractor={(item) => String(item.id)}
+                        renderItem={({ item }) => (
+                            <PlantCardSecondary
+                                data={item}
+                                handleRemove={() => { handleRemove(item) }}
+                            />
+                        )}
+                        showsVerticalScrollIndicator={false}
+                        contentContainerStyle={{ flex: 1 }}
+                    />
+                </ScrollView>
             </View>
-
         </View>
     )
 }
