@@ -53,7 +53,7 @@ export async function savePlant(plant: PlantProps) : Promise<void> {
                 },
             },
             trigger: {
-                seconds: seconds < 60 ? 60 : seconds,
+                // seconds: seconds < 60 ? 60 : seconds,
                 repeats: true
             }
         });
@@ -75,7 +75,7 @@ export async function savePlant(plant: PlantProps) : Promise<void> {
             }));
 
     } catch (error) {
-        throw new Error(error);
+        throw new Error();
     }
 }
 
@@ -104,7 +104,7 @@ export async function loadPlant() : Promise<PlantProps[]> {
         return plantsSorted;
 
     } catch (error) {
-        throw new Error(error);
+        throw new Error();
     }
 }
 
