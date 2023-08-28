@@ -11,7 +11,8 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/b8064f49-37e0-4703-a4c3-f410af521ada"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -27,6 +28,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b8064f49-37e0-4703-a4c3-f410af521ada"
+      }
+    },
+    "owner": "jaquebrsilva",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
   }
 }
