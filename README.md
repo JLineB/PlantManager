@@ -41,10 +41,15 @@ Aplicativo para ajudar pessoas a lembrarem de cuidar de suas plantas. Os lembret
 
 > **[APPLE STORE](https://apps.apple.com/app/apple-store/id982107779) | [GOOGLE PLAY](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)**
 
-➡️ Abra o link do projeto : 
-> **[PlantManager](https://expo.dev/@jaqbrsilva/PlantManager)**
+➡️ Leia o QR Code: 
 
-➡️ Leia o QR Code, ou entre pelo link disponibilizado abaixo dele
+<div align="center">
+<h3>Android</h3>
+  <img alt="QRCode Android" src="https://qr.expo.dev/eas-update?updateId=296d6bc7-16b2-4401-951e-e4a36d2bd112&appScheme=exp&host=u.expo.dev" width="280" height="280" >
+
+<h3>iOS</h3>
+  <img alt="QRCode iOS" src="https://qr.expo.dev/eas-update?updateId=103ec311-969c-4a91-ae83-c05baa56233b&appScheme=exp&host=u.expo.dev" width="280" height="280" >
+</div>
 
 <br/>
 
